@@ -1,40 +1,45 @@
-# Chris Lehnert Academic Website
+# Chris Lehnert - academic website
 
-This is a first draft static website for GitHub Pages.
+A static academic portfolio for GitHub Pages. This revision develops the original seven-page site into a connected research portfolio, without a framework, package manager or required build step.
 
-## How to publish using GitHub Pages
+## Preview
 
-1. Create a GitHub repository. A common name is `chris-lehnert.github.io` or `<your-github-username>.github.io`.
-2. Upload all files from this folder into the repository root.
-3. In GitHub, go to **Settings**, then **Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select the `main` branch and `/root` folder.
-6. Save.
-7. GitHub will publish the site at `https://<your-github-username>.github.io/`.
+Open `index.html` in a modern browser. Alternatively run `python -m http.server 8000` in this directory. The site is designed for the existing GitHub Pages project subdirectory as well as a custom domain; all local links are relative.
 
-## How to edit
+## Structure
 
-The main page is `index.html`.
-The visual style is in `assets/css/style.css`.
+- Existing routes retained: `index.html`, `research.html`, `projects.html`, `publications.html`, `media.html`, `teaching.html`, `contact.html`.
+- Eleven `project-*.html` pages connect research challenges, scope, sources and selected publications.
+- `credits.html` documents research attribution, the photograph and video privacy.
+- `assets/css/style.css` is the shared responsive design.
+- `assets/js/site.js` adds optional mobile navigation, project filters, publication search and click-to-load YouTube. Research content remains in the HTML and is available without JavaScript.
+- `assets/images/vertical-farm.avif` is the author-supplied QUT facility photograph; other project covers are decorative CSS treatments, not claimed research figures.
 
-To add videos, upload your videos to YouTube or Vimeo, then replace a video placeholder with this:
+## Deployment
 
-```html
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-    title="Project video title"
-    frameborder="0"
-    allowfullscreen></iframe>
-</div>
-```
+This is a review revision. Publishing requires merging it into the branch configured in GitHub Pages. Do not assume that creating a pull request changes the live website. Preserve any existing Pages/custom-domain settings. The empty `.nojekyll` file supports direct static hosting.
 
-For an unlisted YouTube video, use the same embed format. Anyone with the page can view it, but it will not normally appear in public YouTube search.
+## Maintenance
 
-## Suggested next edits
+Edit the relevant HTML file directly. Keep shared navigation and footer changes consistent across pages. Selected publications occur on `publications.html`, related project pages and, for three featured records, `index.html`; update all copies when metadata changes. Search keywords live in the `data-search` attributes. Project categories live in `data-category`.
 
-1. Add a professional headshot or lab hero image to `assets/images/`.
-2. Replace the homepage video placeholder with a featured research video.
-3. Add project videos to `media.html`.
-4. Add individual project pages for the largest projects.
-5. Add QUT profile, ORCID, LinkedIn and GitHub links to `contact.html`.
-6. Review project wording for partner permissions and unpublished work.
+The YouTube playlist ID is `PLGXJRvdnpz1JTOfU5RbHtAUjgt0UyZORl`. The player does not contact YouTube before the visitor selects Load. Its `youtube-nocookie.com` domain is privacy-enhanced, not a promise of zero data transmission. No videos autoplay. This implementation does not connect to a private YouTube account or enumerate playlist entries. Individual video-to-project matches still require checking the actual playlist contents.
+
+## Content review (8 September 2026)
+
+Primary sources checked include QUT's academic profile, the linked arXiv manuscripts, IEEE's 2024 shape-completion record, the Lamarr Institute, and Future Food Systems. The project context also draws on the author's website brief. This is a selected research review, not a complete publication audit.
+
+- RICE: link and date refer to the June 2025 arXiv preprint. The author-supplied record identifies ICRA 2026; final proceedings metadata should be reconciled before changing the publication label. The current site does not claim universal plant safety or complete harvesting performance.
+- Mobile base control: the linked record is the September 2023 manuscript. Check final journal metadata before replacing that citation with the later publication.
+- Acoustic feedback for grinding: the arXiv record explicitly states acceptance at ICRA 2026.
+- Banana dehanding: Future Food Systems lists P2-022 as completed in May 2026. Follow-on development is distinct; no commercial-deployment success, new funding award or partner cash commitment is asserted.
+- AgriVLA, greenhouse UV/image work, and future interaction-learning work are described as development directions, not released datasets/models, proven disease-treatment efficacy or completed funded programmes.
+- No confidential grant budgets, staffing plans, proposed work packages or unpublished performance results are included.
+- Old citation, publication-count and funding statistics were removed rather than treated as live metrics.
+- The tree-crop and poultry streams remain brief author-described application areas until stronger public project material is available.
+
+## Validation
+
+Nineteen HTML pages were rendered in Chromium at 1440 px and 390 px using an inline-asset test harness because this environment blocks browser navigation to local servers and file URLs. Local links and fragments were separately checked. Project filters, publication search, empty results, mobile-menu Escape behaviour and no-JavaScript content/navigation were exercised. No horizontal overflow, missing images or JavaScript page errors were detected in that test.
+
+The YouTube iframe creation was tested with a network stub; actual video playback and live GitHub Pages deployment were not verified. External source retrieval is not a guarantee that every external URL will always resolve. Review on the final deployed origin before public launch.
